@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> weather</title>
+    <style>
+      * {
+         padding: 0;
+         margin: 0;
+         text-decoration: none;
+         list-style: none;
+         box-sizing: border-box;
+      }
+      body{
+         font-family: 'Times New Roman', Times, serif;
+         
+         
+      } 
+       nav{
+          background-color: gainsboro;
+          height: 70px;
+       }
+      
+       label.logo{
+          color: white;
+          font-size: 35px;
+          line-height: 80px;
+          padding: 0 100px;
+          font-weight: bold;
+       }
+     nav ul{
+        float: right;
+        margin-right: 20px;
+     }
+     nav ul li{
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+
+     }
+     nav ul li a{
+        color: beige;
+        font-size: 17px;
+        text-transform: uppercase;
+        padding: 7px 13px;
+        border-radius: 3px;
+
+     }
+     nav ul li a:hover{
+        background: grey;
+
+     }
+
+    </style>
+</head>
+
+<body>
+   <nav>
+    <label class="logo">Weather Detector</label>
+        <ul>
+            <li> <a href="#"> Home </a></li>
+            <li> <a href="#"> About </a></li>
+            <li> <a href="#"> contact </a></li>
+            <li> <a href="#"> journey </a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>
+
+<center>
+    <form action="" method="post">
+        {%csrf_token%}
+         <input type="text" name="submit">
+         <button>submit</button>  
+   </form>
+</center> 
+{% if data.country_code%}
+<h2>country code: {{data.country_code}}  </h2>
+<h3>coordinate: {{data.coordinate}}</h3>
+<h3>temp: {{data.temp}}</h3>
+<h3>pressure: {{data.pressure}}</h3>
+<h3>humidity: {{data.humidity}}</h3>
+{% endif%}
